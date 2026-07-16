@@ -386,6 +386,14 @@
             color: #4b3d2c;
         }
 
+        .family-address {
+            font-size: 18px !important;
+            color: #6a5a44 !important;
+            font-style: italic;
+            margin-top: 8px;
+            line-height: 1.4 !important;
+        }
+
         .map {
             display: inline-block;
             margin-top: 30px;
@@ -507,18 +515,29 @@
             </p>
         </div>
 
-        <!-- Parents Card -->
+        <!-- Parents Card (with Addresses Added) -->
         <div class="card">
             <h2>Bride's Parents</h2>
             <p>
                 Mr. Nissarudeen MH<br>
                 Ms. Semi S
             </p>
+            <p class="family-address">
+                Al Waha <br>
+                Kaithakkadu kulathupuzha, Kollam
+            </p>
+            
             <br><br>
+            <div class="divider" style="font-size: 20px; margin: 20px 0;">✦</div>
+            
             <h2>Groom's Parents</h2>
             <p>
                 Mr. Mohammed Ilyas<br>
                 Ms. Shameela Beegam
+            </p>
+            <p class="family-address">
+                Amber Group, Valiyavilakath Veedu <br>
+                Alamcode, Thiruvananthapuram
             </p>
         </div>
 
@@ -556,7 +575,6 @@
 
             // --- MUSIC PLAYS ONLY ON EMBLEM CLICK ---
             if (music) {
-                // The click on the seal counts as user interaction, letting us play the music safely here
                 music.play().then(() => {
                     if (musicBtn) musicBtn.innerHTML = "🔊";
                 }).catch((err) => {
@@ -570,7 +588,7 @@
                 seal.style.transition = ".6s ease-in-out";
                 seal.style.transform = "translate(-50%,-50%) scale(0.15) rotate(540deg)";
                 seal.style.opacity = "0";
-                seal.style.pointerEvents = "none"; // Disable further clicks on the seal
+                seal.style.pointerEvents = "none";
             }
 
             // 2. Slide Ribbon away
@@ -589,10 +607,8 @@
                     cover.style.display = "none";
                     invitation.style.display = "block";
                     
-                    // Show the control music button
                     if (musicBtn) musicBtn.style.display = "flex";
 
-                    // Smooth fade-in transition for main layout
                     setTimeout(() => {
                         invitation.style.transition = "all 1.5s ease-out";
                         invitation.style.opacity = "1";
