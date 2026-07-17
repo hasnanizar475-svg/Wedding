@@ -333,7 +333,7 @@
 
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: 74px;
+            font-size: 8vw; /* Scales down on mobile */
             text-align: center;
             background: linear-gradient(180deg, #8a5d13, #d8b14d, #a67817);
             -webkit-background-clip: text;
@@ -342,19 +342,21 @@
             margin: 10px 0;
             position: relative;
             overflow: hidden;
-            padding: 0 30px; 
+            padding: 0 15px; 
+            line-height: 1.2;
         }
 
-        .names::after {
-            content: "";
-            position: absolute;
-            left: -120%;
-            top: 0;
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent);
-            transform: skewX(-25deg);
-            animation: shine 5s infinite;
+        /* Responsive adjustments specifically for phone screens */
+        @media (max-width: 600px) {
+            .names {
+                font-size: 42px; /* Prevents overflow on mobile */
+            }
+            .card {
+                padding: 30px 15px; /* Adjusts card space */
+            }
+            .arch {
+                padding: 35px 15px;
+            }
         }
 
         @keyframes shine {
